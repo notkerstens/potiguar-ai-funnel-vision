@@ -63,13 +63,13 @@ export const funnelStages: FunnelStage[] = [
   },
   {
     id: 7,
-    name: "Simulação de Pagamento",
-    description: "Apresentação das condições de pagamento",
+    name: "Simulação de Pagamento (Solicitação de CPF)",
+    description: "Apresentação das condições financeiras e solicitação de documentos",
     leadsEntered: 38,
     leadsAdvanced: 32,
     leadsStuck: 6,
     conversionRate: 84.2,
-    mainObjection: "Valor muito alto"
+    mainObjection: "Resistência ao fornecimento do CPF"
   },
   {
     id: 8,
@@ -146,13 +146,27 @@ export const leads: Lead[] = [
     email: "pedro@email.com",
     phone: "(84) 95555-5555",
     currentStage: 7,
-    stageName: "Simulação de Pagamento",
-    status: "active",
-    statusDescription: "Aguardando Aprovação Financeira",
+    stageName: "Simulação de Pagamento (Solicitação de CPF)",
+    status: "stuck",
+    statusDescription: "Aguardando CPF",
     sdr: "AI Bot 1",
     createdAt: "2024-01-11",
     lastUpdate: "2024-01-16",
-    observations: "Gostou da simulação, verificando orçamento familiar"
+    observations: "Cliente resistente ao fornecimento do CPF, alegando questões de segurança"
+  },
+  {
+    id: "6",
+    name: "Lucia Ferreira",
+    email: "lucia@email.com",
+    phone: "(84) 94444-6666",
+    currentStage: 5,
+    stageName: "Momento e Motivação",
+    status: "stuck",
+    statusDescription: "Travado por Concorrência",
+    sdr: "AI Bot 2",
+    createdAt: "2024-01-13",
+    lastUpdate: "2024-01-16",
+    observations: "Recebeu proposta mais barata de concorrente, negociando condições"
   }
 ];
 
