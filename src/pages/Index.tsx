@@ -6,6 +6,7 @@ import { FunnelChart } from "@/components/dashboard/FunnelChart";
 import { StatusChart } from "@/components/dashboard/StatusChart";
 import { LeadsList } from "@/components/dashboard/LeadsList";
 import { ObservationField } from "@/components/dashboard/ObservationField";
+import { ScoreDistribution } from "@/components/dashboard/ScoreDistribution";
 import { dashboardMetrics, funnelStages, leads, sdrs } from "@/data/mockData";
 import { Lead } from "@/types/dashboard";
 import { Zap, Sun } from "lucide-react";
@@ -17,6 +18,7 @@ const Index = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
+  const [selectedScoreRange, setSelectedScoreRange] = useState("all");
   const { toast } = useToast();
 
   const handleResetFilters = () => {
@@ -24,6 +26,7 @@ const Index = () => {
     setSelectedPeriod("month");
     setStartDate("");
     setEndDate("");
+    setSelectedScoreRange("all");
     toast({
       title: "Filtros limpos",
       description: "Todos os filtros foram resetados com sucesso.",
@@ -94,6 +97,8 @@ const Index = () => {
           onStartDateChange={setStartDate}
           endDate={endDate}
           onEndDateChange={setEndDate}
+          selectedScoreRange={selectedScoreRange}
+          onScoreRangeChange={setSelectedScoreRange}
           onResetFilters={handleResetFilters}
         />
 
@@ -101,9 +106,10 @@ const Index = () => {
         <MetricsOverview metrics={dashboardMetrics} />
 
         {/* Gráficos */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <FunnelChart stages={funnelStages} />
           <StatusChart metrics={dashboardMetrics} />
+          <ScoreDistribution metrics={dashboardMetrics} />
         </div>
 
         {/* Tabela Detalhada por Etapa */}
@@ -131,7 +137,7 @@ const Index = () => {
             <span className="font-semibold">RoboLink</span>
           </div>
           <p className="text-primary-foreground/80 text-sm">
-            Dashboard AI v2.0 - Automatizando o futuro da energia solar
+            Dashboard AI v3.0 - Lead Scoring Inteligente + Automatização
           </p>
         </div>
       </footer>

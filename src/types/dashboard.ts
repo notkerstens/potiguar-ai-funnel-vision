@@ -7,6 +7,7 @@ export interface FunnelStage {
   leadsStuck: number;
   conversionRate: number;
   mainObjection?: string;
+  points: number;
 }
 
 export interface Lead {
@@ -22,6 +23,9 @@ export interface Lead {
   createdAt: string;
   lastUpdate: string;
   observations?: string;
+  score: number;
+  scoreCategory: 'cold' | 'warm' | 'hot';
+  responseTime?: 'fast' | 'slow' | 'normal';
 }
 
 export interface DashboardMetrics {
@@ -29,6 +33,10 @@ export interface DashboardMetrics {
   leadsInProgress: number;
   completedLeads: number;
   finalConversionRate: number;
+  averageScore: number;
+  hotLeads: number;
+  warmLeads: number;
+  coldLeads: number;
 }
 
 export interface SDR {

@@ -35,6 +35,7 @@ export const FunnelStagesTable = ({ stages }: FunnelStagesTableProps) => {
             <TableHeader>
               <TableRow>
                 <TableHead>Etapa</TableHead>
+                <TableHead className="text-center">Pontos</TableHead>
                 <TableHead className="text-center">Entraram</TableHead>
                 <TableHead className="text-center">Avançaram</TableHead>
                 <TableHead className="text-center">Travaram</TableHead>
@@ -49,6 +50,12 @@ export const FunnelStagesTable = ({ stages }: FunnelStagesTableProps) => {
                     <div>
                       <div className="font-medium text-primary">{stage.name}</div>
                       <div className="text-xs text-muted-foreground">{stage.description}</div>
+                    </div>
+                  </TableCell>
+                  <TableCell className="text-center">
+                    <div className="flex items-center justify-center gap-1">
+                      <span className="text-lg font-bold text-primary">+{stage.points}</span>
+                      <span className="text-xs text-muted-foreground">pts</span>
                     </div>
                   </TableCell>
                   <TableCell className="text-center font-medium">

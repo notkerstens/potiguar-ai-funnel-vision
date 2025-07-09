@@ -9,7 +9,8 @@ export const funnelStages: FunnelStage[] = [
     leadsAdvanced: 95,
     leadsStuck: 25,
     conversionRate: 79.2,
-    mainObjection: "Não tem tempo agora"
+    mainObjection: "Não tem tempo agora",
+    points: 5
   },
   {
     id: 2,
@@ -19,7 +20,8 @@ export const funnelStages: FunnelStage[] = [
     leadsAdvanced: 78,
     leadsStuck: 17,
     conversionRate: 82.1,
-    mainObjection: "Imóvel é alugado"
+    mainObjection: "Imóvel é alugado",
+    points: 10
   },
   {
     id: 3,
@@ -29,7 +31,8 @@ export const funnelStages: FunnelStage[] = [
     leadsAdvanced: 65,
     leadsStuck: 13,
     conversionRate: 83.3,
-    mainObjection: "Não tem conta em mãos"
+    mainObjection: "Não tem conta em mãos",
+    points: 20
   },
   {
     id: 4,
@@ -39,7 +42,8 @@ export const funnelStages: FunnelStage[] = [
     leadsAdvanced: 52,
     leadsStuck: 13,
     conversionRate: 80.0,
-    mainObjection: "Precisa consultar cônjuge"
+    mainObjection: "Precisa consultar cônjuge",
+    points: 10
   },
   {
     id: 5,
@@ -49,7 +53,8 @@ export const funnelStages: FunnelStage[] = [
     leadsAdvanced: 45,
     leadsStuck: 7,
     conversionRate: 86.5,
-    mainObjection: "Não é prioridade agora"
+    mainObjection: "Não é prioridade agora",
+    points: 10
   },
   {
     id: 6,
@@ -59,7 +64,8 @@ export const funnelStages: FunnelStage[] = [
     leadsAdvanced: 38,
     leadsStuck: 7,
     conversionRate: 84.4,
-    mainObjection: "Já cotou com outras empresas"
+    mainObjection: "Já cotou com outras empresas",
+    points: 5
   },
   {
     id: 7,
@@ -69,7 +75,8 @@ export const funnelStages: FunnelStage[] = [
     leadsAdvanced: 32,
     leadsStuck: 6,
     conversionRate: 84.2,
-    mainObjection: "Resistência ao fornecimento do CPF"
+    mainObjection: "Resistência ao fornecimento do CPF",
+    points: 20
   },
   {
     id: 8,
@@ -79,7 +86,8 @@ export const funnelStages: FunnelStage[] = [
     leadsAdvanced: 28,
     leadsStuck: 4,
     conversionRate: 87.5,
-    mainObjection: "Disponibilidade de agenda"
+    mainObjection: "Disponibilidade de agenda",
+    points: 20
   }
 ];
 
@@ -96,7 +104,10 @@ export const leads: Lead[] = [
     sdr: "AI Bot 1",
     createdAt: "2024-01-15",
     lastUpdate: "2024-01-16",
-    observations: "Cliente interessado, precisa buscar conta em casa"
+    observations: "Cliente interessado, precisa buscar conta em casa",
+    score: 35,
+    scoreCategory: "warm",
+    responseTime: "fast"
   },
   {
     id: "2",
@@ -110,7 +121,10 @@ export const leads: Lead[] = [
     sdr: "AI Bot 2",
     createdAt: "2024-01-10",
     lastUpdate: "2024-01-16",
-    observations: "Lead qualificado, visita agendada para quinta-feira"
+    observations: "Lead qualificado, visita agendada para quinta-feira",
+    score: 85,
+    scoreCategory: "hot",
+    responseTime: "fast"
   },
   {
     id: "3",
@@ -124,7 +138,10 @@ export const leads: Lead[] = [
     sdr: "AI Bot 1",
     createdAt: "2024-01-12",
     lastUpdate: "2024-01-15",
-    observations: "Precisa conversar com esposa antes de prosseguir"
+    observations: "Precisa conversar com esposa antes de prosseguir",
+    score: 40,
+    scoreCategory: "warm",
+    responseTime: "slow"
   },
   {
     id: "4",
@@ -138,7 +155,10 @@ export const leads: Lead[] = [
     sdr: "AI Bot 2",
     createdAt: "2024-01-14",
     lastUpdate: "2024-01-16",
-    observations: "Comparando com 2 outras empresas"
+    observations: "Comparando com 2 outras empresas",
+    score: 55,
+    scoreCategory: "warm",
+    responseTime: "normal"
   },
   {
     id: "5",
@@ -152,7 +172,10 @@ export const leads: Lead[] = [
     sdr: "AI Bot 1",
     createdAt: "2024-01-11",
     lastUpdate: "2024-01-16",
-    observations: "Cliente resistente ao fornecimento do CPF, alegando questões de segurança"
+    observations: "Cliente resistente ao fornecimento do CPF, alegando questões de segurança",
+    score: 45,
+    scoreCategory: "warm",
+    responseTime: "slow"
   },
   {
     id: "6",
@@ -166,7 +189,44 @@ export const leads: Lead[] = [
     sdr: "AI Bot 2",
     createdAt: "2024-01-13",
     lastUpdate: "2024-01-16",
-    observations: "Recebeu proposta mais barata de concorrente, negociando condições"
+    observations: "Recebeu proposta mais barata de concorrente, negociando condições",
+    score: 50,
+    scoreCategory: "warm",
+    responseTime: "normal"
+  },
+  {
+    id: "7",
+    name: "Roberto Lima",
+    email: "roberto@email.com",
+    phone: "(84) 93333-7777",
+    currentStage: 1,
+    stageName: "Abertura do Contato",
+    status: "active",
+    statusDescription: "Primeiro Contato",
+    sdr: "AI Bot 1",
+    createdAt: "2024-01-16",
+    lastUpdate: "2024-01-16",
+    observations: "Lead novo, ainda qualificando interesse",
+    score: 5,
+    scoreCategory: "cold",
+    responseTime: "fast"
+  },
+  {
+    id: "8",
+    name: "Sandra Rocha",
+    email: "sandra@email.com",
+    phone: "(84) 92222-8888",
+    currentStage: 2,
+    stageName: "Perfil do Imóvel",
+    status: "stuck",
+    statusDescription: "Só Curioso",
+    sdr: "AI Bot 2",
+    createdAt: "2024-01-14",
+    lastUpdate: "2024-01-15",
+    observations: "Demonstra pouco interesse real, apenas curiosidade",
+    score: 5,
+    scoreCategory: "cold",
+    responseTime: "slow"
   }
 ];
 
@@ -189,5 +249,9 @@ export const dashboardMetrics: DashboardMetrics = {
   totalLeads: 120,
   leadsInProgress: 92,
   completedLeads: 28,
-  finalConversionRate: 23.3
+  finalConversionRate: 23.3,
+  averageScore: 42.5,
+  hotLeads: 15,
+  warmLeads: 68,
+  coldLeads: 37
 };

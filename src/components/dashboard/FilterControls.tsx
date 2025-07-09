@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SDR } from "@/types/dashboard";
-import { Filter, Calendar, User } from "lucide-react";
+import { Filter, Calendar, User, Target } from "lucide-react";
 
 interface FilterControlsProps {
   sdrs: SDR[];
@@ -16,6 +16,8 @@ interface FilterControlsProps {
   onStartDateChange: (date: string) => void;
   endDate: string;
   onEndDateChange: (date: string) => void;
+  selectedScoreRange: string;
+  onScoreRangeChange: (range: string) => void;
   onResetFilters: () => void;
 }
 
@@ -29,6 +31,8 @@ export const FilterControls = ({
   onStartDateChange,
   endDate,
   onEndDateChange,
+  selectedScoreRange,
+  onScoreRangeChange,
   onResetFilters
 }: FilterControlsProps) => {
   return (
@@ -40,7 +44,7 @@ export const FilterControls = ({
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           <div className="space-y-2">
             <Label className="flex items-center gap-2">
               <User className="h-4 w-4" />
@@ -98,6 +102,24 @@ export const FilterControls = ({
               </div>
             </>
           )}
+
+          <div className="space-y-2">
+            <Label className="flex items-center gap-2">
+              <Target className="h-4 w-4" />
+              Faixa de Score
+            </Label>
+            <Select value={selectedScoreRange} onValueChange={onScoreRangeChange}>
+              <SelectTrigger>
+                <SelectValue placeholder="Todas as faixas" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Todas as Faixas</SelectItem>
+                <SelectItem value="hot">Quente (61-100 pts)</SelectItem>
+                <SelectItem value="warm">Morno (31-60 pts)</SelectItem>
+                <SelectItem value="cold">Frio (0-30 pts)</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
           <div className="flex items-end">
             <Button 

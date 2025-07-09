@@ -44,6 +44,28 @@ export const LeadsList = ({ leads, onViewLead }: LeadsListProps) => {
     }
   };
 
+  const getScoreBadgeVariant = (category: Lead['scoreCategory']) => {
+    switch (category) {
+      case 'hot':
+        return 'default';
+      case 'warm':
+        return 'secondary';
+      case 'cold':
+        return 'outline';
+    }
+  };
+
+  const getScoreColor = (category: Lead['scoreCategory']) => {
+    switch (category) {
+      case 'hot':
+        return 'text-destructive';
+      case 'warm':
+        return 'text-warning';
+      case 'cold':
+        return 'text-muted-foreground';
+    }
+  };
+
   return (
     <Card className="shadow-soft">
       <CardHeader>
@@ -60,6 +82,7 @@ export const LeadsList = ({ leads, onViewLead }: LeadsListProps) => {
                 <TableHead>Nome / Contato</TableHead>
                 <TableHead>Etapa Atual</TableHead>
                 <TableHead>Status</TableHead>
+                <TableHead>Lead Score</TableHead>
                 <TableHead>SDR</TableHead>
                 <TableHead>Última Atualização</TableHead>
                 <TableHead>Ações</TableHead>
@@ -95,6 +118,20 @@ export const LeadsList = ({ leads, onViewLead }: LeadsListProps) => {
                         <div className="text-xs text-muted-foreground mt-1">
                           {lead.statusDescription}
                         </div>
+                      </div>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-2">
+                      <div className="text-center">
+                        <div className="text-lg font-bold text-primary">{lead.score}</div>
+                        <Badge 
+                          variant={getScoreBadgeVariant(lead.scoreCategory)}
+                          className={getScoreColor(lead.scoreCategory)}
+                        >
+                          {lead.scoreCategory === 'hot' ? 'Quente' : 
+                           lead.scoreCategory === 'warm' ? 'Morno' : 'Frio'}
+                        </Badge>
                       </div>
                     </div>
                   </TableCell>
